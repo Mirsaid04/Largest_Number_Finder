@@ -24,19 +24,32 @@ namespace Matematical_Operation
                 if (firstNumber > secondNumber)
                 {
                     if (firstNumber > thirdNumber)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("1st number is greater than others");
+                        Console.ResetColor();
+                    }
 
                     else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("3rd number is the greater than others");
+                        Console.ResetColor();
+                    }
                 }
                 else if (secondNumber > thirdNumber)
                 {
+                    Console.ForegroundColor= ConsoleColor.Blue;
                     Console.WriteLine("2nd number is the greater than others");
+                    Console.ResetColor();
                 }
 
                 else
                 {
+
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("3rd number is the greater than others");
+                    Console.ResetColor();
 
                 }
 
