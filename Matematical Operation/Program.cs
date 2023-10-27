@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel.Design;
+using System.Diagnostics;
 using System.Net.NetworkInformation;
+using Matematical_Operation.Classes;
 
 namespace Matematical_Operation
 {
@@ -7,58 +9,28 @@ namespace Matematical_Operation
     {
         static void Main(string[] args)
         {
-            string yesOrNo = " ";
+            string yesOrNo = "";
             do
             {
-                Console.WriteLine("Please enter 3 numbers;");
+                CalculationProcess calculation = new CalculationProcess();
 
-                Console.Write("FirstNumber: ");
-                int firstNumber = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("SecondNumber: ");
-                int secondNumber = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("ThirdNumber: ");
-                int thirdNumber = Convert.ToInt32(Console.ReadLine());
-
-                if (firstNumber > secondNumber)
-                {
-                    if (firstNumber > thirdNumber)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("1st number is greater than others");
-                        Console.ResetColor();
-                    }
-
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("3rd number is the greater than others");
-                        Console.ResetColor();
-                    }
-                }
-                else if (secondNumber > thirdNumber)
-                {
-                    Console.ForegroundColor= ConsoleColor.Blue;
-                    Console.WriteLine("2nd number is the greater than others");
-                    Console.ResetColor();
-                }
-
-                else
-                {
-
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("3rd number is the greater than others");
-                    Console.ResetColor();
-
-                }
+                calculation.Calculate();
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Do you want to continue [y/n]: ");
                 yesOrNo = Console.ReadLine()!;
                 Console.ResetColor();
+                if (yesOrNo =="y" || yesOrNo == "n")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Sorry, you entered invalid input");
+                }
 
-            }while (yesOrNo == "y");
+                } while (yesOrNo == "y") ;
+
         }
     }
 }
